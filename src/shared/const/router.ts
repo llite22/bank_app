@@ -1,7 +1,7 @@
 export enum AppRoutes {
-    // Login = "login",
+    Login = "login",
     // Registration = "registration",
-    // Dashboard = "dashboard",
+    Dashboard = "dashboard",
     // Transactions = "transactions",
     // Accounts = "accounts",
     // Investments = "investments",
