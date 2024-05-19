@@ -5,6 +5,7 @@ import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { Sidebar } from "@/widgets/Sidebar/ui/Sidebar/Sidebar";
+import { Navbar } from "@/widgets/Navbar";
 
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
@@ -41,7 +42,10 @@ function App() {
       <Suspense fallback="loading...">
         <div className="flex h-full">
           {user && <Sidebar />}
-          {!isLoading && (user || !token) && <AppRouter />}
+          <div className="flex flex-col w-full">
+            {user && <Navbar />}
+            {!isLoading && (user || !token) && <AppRouter />}
+          </div>
         </div>
       </Suspense>
     </div>

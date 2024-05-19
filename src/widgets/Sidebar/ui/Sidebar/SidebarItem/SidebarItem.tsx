@@ -15,7 +15,7 @@ interface SidebarItemProps {
 export const SidebarItem = ({ item }: SidebarItemProps) => {
   const { t } = useTranslation();
   const { user } = useContext(AuthContext);
-  const location = useLocation();
+  const { pathname } = useLocation();
 
   if (item.authOnly && !user) {
     return null;
@@ -25,19 +25,15 @@ export const SidebarItem = ({ item }: SidebarItemProps) => {
     <AppLink className="flex items-center gap-8" to={item.path}>
       <div
         className={`h-10 w-1 rounded-r-lg ${
-          location.pathname === item.path ? "bg-blue-500" : ""
+          pathname === item.path ? "bg-blue-500" : ""
         }`}
       ></div>
       <Icon
         Svg={item.Icon}
-        className={
-          location.pathname === item.path ? "fill-blue-600" : "fill-gray-400"
-        }
+        className={pathname === item.path ? "fill-blue-600" : "fill-gray-400"}
       />
       <span
-        className={
-          location.pathname === item.path ? "text-blue-600" : "text-gray-400"
-        }
+        className={pathname === item.path ? "text-blue-600" : "text-gray-400"}
       >
         {t(item.text)}
       </span>

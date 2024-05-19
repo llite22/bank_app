@@ -17,7 +17,7 @@ export const sidebarItemsList = [
     },
     {
         path: getRouteTransactions(),
-        text: "transactions",
+        text: "Transactions",
         Icon: TransactionsIcon
     },
     {

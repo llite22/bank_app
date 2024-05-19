@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 export const NotFoundPage = () => {
   const { t } = useTranslation();
   return (
-    <div className="flex justify-center items-center w-full">
+    <div className="flex justify-center items-center w-full h-[100vh]">
       <div>
         <h1>{t("Страница не найдена")}</h1>
       </div>
