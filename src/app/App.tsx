@@ -4,6 +4,7 @@ import AppRouter from "./providers/router/ui/AppRouter";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
+import { Sidebar } from "@/widgets/Sidebar/ui/Sidebar/Sidebar";
 
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
@@ -38,7 +39,10 @@ function App() {
   return (
     <div>
       <Suspense fallback="loading...">
-        {!isLoading && (user || !token) && <AppRouter />}
+        <div className="flex">
+          <Sidebar />
+          {!isLoading && (user || !token) && <AppRouter />}
+        </div>
       </Suspense>
     </div>
   );

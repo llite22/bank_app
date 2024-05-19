@@ -18,7 +18,7 @@ export const getRouteLogin = () => '/login'
 export const getRouteRegistration = () => '/registration'
 export const getRouteDashboard = () => '/dashboard'
 export const getRouteTransactions = () => '/transactions'
-export const getRouteAccounts = (id: number) => `/accounts/${id}`
+export const getRouteAccounts = () => `/accounts`
 export const getRouteInvestments = () => '/investments'
 export const getRouteCreditCards = () => `/creditcards`
 export const getRouteLoans = () => '/loans'

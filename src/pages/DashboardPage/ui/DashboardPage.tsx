@@ -12,11 +12,7 @@ const DashboardPage = () => {
 
   return (
     <>
-      {user ? (
-        <div>Привет {user?.username}</div>
-      ) : (
-        <div>Произошла ошибка</div>
-      )}
+      {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>}
       <Button onClick={onLogout}>Выйти</Button>
     </>
   );
