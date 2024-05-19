@@ -40,7 +40,7 @@ function App() {
     <div className="h-screen">
       <Suspense fallback="loading...">
         <div className="flex h-full">
-          <Sidebar />
+          {user && <Sidebar />}
           {!isLoading && (user || !token) && <AppRouter />}
         </div>
       </Suspense>

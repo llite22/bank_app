@@ -14,7 +14,7 @@ export const Sidebar = () => {
           <SidebarItem key={item.path} item={item} />
         ))}
       </div>
-      <div className="absolute top-0 right-0 h-full w-[1px] bg-gray-300"></div>
+      <div className="absolute top-0 right-0 h-full w-[1px] bg-gray-100"></div>
     </aside>
   );
 };
