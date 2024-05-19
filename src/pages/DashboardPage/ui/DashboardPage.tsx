@@ -11,10 +11,10 @@ const DashboardPage = () => {
   };
 
   return (
-    <>
+    <div>
       {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>}
       <Button onClick={onLogout}>Выйти</Button>
-    </>
+    </div>
   );
 };
 

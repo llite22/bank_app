@@ -37,9 +37,9 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="h-screen">
       <Suspense fallback="loading...">
-        <div className="flex">
+        <div className="flex h-full">
           <Sidebar />
           {!isLoading && (user || !token) && <AppRouter />}
         </div>
