@@ -13,7 +13,7 @@ export const Navbar = () => {
   const formattedPath = pathname.charAt(1).toUpperCase() + pathname.slice(2);
 
   return (
-    <div>
+    <header>
       <div className="flex items-center w-full gap-72 p-7">
         <h1 className="text-custom-blue text-2xl font-bold">{formattedPath}</h1>
         <div className="flex items-center ml-auto gap-6">
@@ -37,6 +37,6 @@ export const Navbar = () => {
         </div>
       </div>
       <hr className="border-gray-200" />
-    </div>
+    </header>
   );
 };

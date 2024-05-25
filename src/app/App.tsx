@@ -38,9 +38,9 @@ function App() {
   };
 
   return (
-    <div className="h-screen">
+    <div>
       <Suspense fallback="loading...">
-        <div className="flex h-full">
+        <div className="flex">
           {user && <Sidebar />}
           <div className="flex flex-col w-full">
             {user && <Navbar />}

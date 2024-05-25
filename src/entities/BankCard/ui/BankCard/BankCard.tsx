@@ -40,9 +40,9 @@ export const BankCard = ({
   const color = `${inverted ? "text-black" : "text-white"} `;
 
   return (
-    <div className="p-4 ">
+    <div className="p-4">
       <Card
-        className={`w-[350px] rounded-3xl  ${
+        className={`min-w-[350px] rounded-3xl  ${
           inverted ? "bg-white" : "bg-blue-600"
         }`}
       >
@@ -55,7 +55,7 @@ export const BankCard = ({
             <Icon Svg={ChipCardIcon} />
           </div>
         </CardHeader>
-        <CardContent className="flex justify-between w-[300px] ">
+        <CardContent className="flex justify-between min-w-[300px] ">
           <div>
             <p className={color}>Card Holder</p>
             <h1 className={color}>{data[0]?.name}</h1>

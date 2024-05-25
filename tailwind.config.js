@@ -17,6 +17,9 @@ module.exports = {
       },
     },
     extend: {
+      height: {
+        'custom': 'calc(100vh - 104px)'
+      },
       colors: {
         'custom-blue': '#343C6A',
         border: "hsl(var(--border))",

@@ -83,6 +83,7 @@ const LoginForm = () => {
                       <Input
                         className="border-4 border-double rounded-lg border-sky-500"
                         placeholder="password"
+                        type="password"
                         {...field}
                       />
                     </FormControl>

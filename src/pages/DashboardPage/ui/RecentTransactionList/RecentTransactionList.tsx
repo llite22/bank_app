@@ -4,9 +4,9 @@ import { RecentTransactionItem } from "../RecentTransactionItem/RecentTransactio
 export const RecentTransactionList = () => {
   return (
     <div>
-      <h1 className="flex items-center p-4">Recent Transaction</h1>
+      <h1 className="pl-4 text-custom-blue text-xl font-bold">Recent Transaction</h1>
       <div className="p-4">
-        <Card className="max-w-[350px] rounded-3xl">
+        <Card className="min-w-[350px] rounded-3xl">
           <RecentTransactionItem />
           <RecentTransactionItem />
           <RecentTransactionItem />
