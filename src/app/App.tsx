@@ -1,5 +1,4 @@
 import { Suspense, useContext, useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import AppRouter from "./providers/router/ui/AppRouter";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
@@ -12,7 +11,6 @@ function App() {
   const {
     query: { refetch },
   } = useAuth();
-  const { i18n } = useTranslation();
   const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 
   useEffect(() => {
@@ -33,12 +31,8 @@ function App() {
     }
   }, []);
 
-  const onToggle = () => {
-    i18n.changeLanguage(i18n.language === "en" ? "ru" : "en");
-  };
-
   return (
-    <div>
+    <div className="bg-white dark:bg-black">
       <Suspense fallback="loading...">
         <div className="flex">
           {user && <Sidebar />}

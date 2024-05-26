@@ -1,16 +1,36 @@
 import { CardContent } from "@/shared/ui/Card/Card";
 import { Icon } from "@/shared/ui/Icon/Icon";
 import DepositIcon from "@/shared/assets/icons/deposit.svg?react";
+import PayPalIcon from "@/shared/assets/icons/paypal.svg?react";
+import RemittanceIcon from "@/shared/assets/icons/remittance.svg?react";
 
-export const RecentTransactionItem = () => {
+export const RecentTransactionItem = ({
+  type,
+  title,
+  date,
+  invoice,
+}: {
+  type: string;
+  title: string;
+  date: string;
+  invoice: number;
+}) => {
   return (
-    <CardContent className="flex w-full items-center gap-2 p-3 pb-[14px]">
-      <Icon Svg={DepositIcon} />
+    <CardContent className="flex w-full items-center gap-4 p-3 pb-[14px]">
+      <Icon
+        Svg={
+          type === "deposit"
+            ? DepositIcon
+            : type === "remittance"
+            ? RemittanceIcon
+            : PayPalIcon
+        }
+      />
       <div>
-        <h1>Deposit from my Card</h1>
-        <p>28 January 2021</p>
+        <h1>{title}</h1>
+        <p>{date}</p>
       </div>
-      <p>-$500</p>
+      <p className="ml-auto">-${invoice}</p>
     </CardContent>
   );
 };

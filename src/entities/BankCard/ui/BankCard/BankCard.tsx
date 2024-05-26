@@ -37,6 +37,7 @@ export const BankCard = ({
       </div>
     );
   }
+
   const color = `${inverted ? "text-black" : "text-white"} `;
 
   return (

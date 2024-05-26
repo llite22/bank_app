@@ -5,6 +5,15 @@ export const DashboardMyCard = () => {
   const {
     query: { data, isPending },
   } = useBankCard();
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center items-center w-full h-[100vh]">
+        Loading...
+      </div>
+    );
+  }
+
   return (
     <div>
       <div className="flex items-center justify-between max-w-3xl">

@@ -3,8 +3,16 @@ import ReactECharts from "echarts-for-react";
 import { useStatisctics } from "../../model/api/staticticsApi";
 export const ExpenseStatistics = () => {
   const {
-    query: { data },
+    query: { data, isPending },
   } = useStatisctics();
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center items-center w-full h-[100vh]">
+        Loading...
+      </div>
+    );
+  }
 
   const option = {
     tooltip: {
@@ -15,7 +23,7 @@ export const ExpenseStatistics = () => {
       {
         name: "Access From",
         type: "pie",
-        radius: "99%",
+        radius: "95%",
         data: data?.data[0].statistics,
         label: {
           show: true,

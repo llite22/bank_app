@@ -7,17 +7,20 @@ import { PageError } from "@/widgets/PageError";
 import { ErrorBoundary } from "@/app/providers/ErrorBoundary";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { AuthProvider } from "@/app/providers/AuthProvider/AuthProvider";
+import { ThemeProvider } from "./app/providers/ThemeProvider";
 
 const queryClient = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
     <QueryClientProvider client={queryClient}>
-      <ErrorBoundary fallback={<PageError />}>
-        <AuthProvider>
-          <App />
-        </AuthProvider>
-      </ErrorBoundary>
+      <ThemeProvider>
+        <ErrorBoundary fallback={<PageError />}>
+          <AuthProvider>
+            <App />
+          </AuthProvider>
+        </ErrorBoundary>
+      </ThemeProvider>
     </QueryClientProvider>
   </BrowserRouter>
 );

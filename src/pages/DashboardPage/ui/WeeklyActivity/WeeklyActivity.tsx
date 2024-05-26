@@ -8,19 +8,23 @@ export const WeeklyActivity = () => {
   } = useTransaction();
 
   if (isPending) {
-    return null;
+    return (
+      <div className="flex justify-center items-center w-full h-[100vh]">
+        Loading...
+      </div>
+    );
   }
 
-  var series = [
+  const series = [
     {
-      data: data?.data[0].transactions.map((t) => t.deposit),
+      data: data?.data[0].transactions.map((t) => t.deposit) || [],
       type: "bar",
       stack: "1",
       name: "Deposit",
       barWidth: 15,
     },
     {
-      data: data?.data[0].transactions.map((t) => t.withdraw),
+      data: data?.data[0].transactions.map((t) => t.withdraw) || [],
       type: "bar",
       stack: "2",
       name: "Withdraw",
