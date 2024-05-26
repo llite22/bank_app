@@ -20,17 +20,11 @@ const DashboardPage = () => {
     <Page>
       <div className="flex flex-row items-center w-full">
         <DashboardMyCard />
-        <div className="grow">
-          <RecentTransactionList />
-        </div>
+        <RecentTransactionList />
       </div>
-      <div className="flex flex-row flex-wrap md:flex-nowrap gap-4">
-        <div className="grow">
-          <WeeklyActivity />
-        </div>
-        <div className="grow">
-          <ExpenseStatistics />
-        </div>
+      <div className="flex flex-row">
+        <WeeklyActivity />
+        <ExpenseStatistics />
       </div>
       {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>}
       <Button onClick={onLogout}>Выйти</Button>
