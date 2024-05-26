@@ -16,7 +16,7 @@ export enum AppRoutes {
 
 export const getRouteLogin = () => '/login'
 export const getRouteRegistration = () => '/registration'
-export const getRouteDashboard = () => '/dashboard'
+export const getRouteDashboard = () => '/'
 export const getRouteTransactions = () => '/transactions'
 export const getRouteAccounts = () => `/accounts`
 export const getRouteInvestments = () => '/investments'
