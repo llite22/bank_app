@@ -1,10 +1,18 @@
-import { Suspense } from "react";
-import { Route, Routes } from "react-router-dom";
+import { Suspense, useContext } from "react";
+import { Navigate, Route, Routes, useLocation } from "react-router-dom";
 import { routeConfig } from "../config/routeConfig";
 import { AppRoutesProps } from "@/shared/types/router";
 import { RequireAuth } from "./RequireAuth";
+import { AuthContext } from "@/shared/lib/context/AuthContext";
+import { getRouteDashboard, getRouteLogin } from "@/shared/const/router";
 
 export const AppRouter = () => {
+  const { pathname } = useLocation();
+  const { user } = useContext(AuthContext);
+
+  if (user && pathname === getRouteLogin()) {
+    return <Navigate to={getRouteDashboard()} replace />;
+  }
   const renderWithWrapper = (route: AppRoutesProps) => {
     return (
       <Route
