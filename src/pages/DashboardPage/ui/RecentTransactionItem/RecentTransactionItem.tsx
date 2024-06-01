@@ -13,7 +13,7 @@ export const RecentTransactionItem = ({
   type: string;
   title: string;
   date: string;
-  invoice: number;
+  invoice: string;
 }) => {
   return (
     <CardContent className="flex w-full items-center gap-4 p-3 pb-[14px]">
@@ -30,7 +30,7 @@ export const RecentTransactionItem = ({
         <h1>{title}</h1>
         <p>{date}</p>
       </div>
-      <p className="ml-auto">-${invoice}</p>
+      <p className="ml-auto">{invoice}</p>
     </CardContent>
   );
 };

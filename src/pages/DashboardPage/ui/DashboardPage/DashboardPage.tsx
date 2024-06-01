@@ -7,6 +7,7 @@ import { RecentTransactionList } from "../RecentTransactionList/RecentTransactio
 import { WeeklyActivity } from "../WeeklyActivity/WeeklyActivity";
 import { ExpenseStatistics } from "../ExpenseStatistics/ExpenseStatistics";
 import { Page } from "@/widgets/Page";
+import { BalanceHistory } from "../BalanceHistory/BalanceHistory";
 
 const DashboardPage = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -18,13 +19,14 @@ const DashboardPage = () => {
 
   return (
     <Page>
-      <div className="flex flex-row items-center w-full">
+      <div className="flex items-center w-full">
         <DashboardMyCard />
         <RecentTransactionList />
       </div>
-      <div className="flex flex-row">
+      <div className="flex w-full flex-wrap">
         <WeeklyActivity />
         <ExpenseStatistics />
+        <BalanceHistory />
       </div>
       {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>}
       <Button onClick={onLogout}>Выйти</Button>

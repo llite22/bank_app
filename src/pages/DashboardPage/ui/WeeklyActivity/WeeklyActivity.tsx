@@ -1,8 +1,11 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
 import { useTransaction } from "../../model/api/transactionApi";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import { Theme } from "@/shared/types/theme";
 
 export const WeeklyActivity = () => {
+  const { theme } = useTheme();
   const {
     query: { data, isPending },
   } = useTransaction();
@@ -89,6 +92,9 @@ export const WeeklyActivity = () => {
       orient: "horizontal",
       x: "right",
       y: "top",
+      textStyle: {
+        color: `${theme === Theme.LIGHT ? "#000" : "#fff"}`,
+      },
     },
     series: series as any,
   };
