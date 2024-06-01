@@ -2,7 +2,7 @@ import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { Button } from "@/shared/ui/Button/Button";
 import { useContext } from "react";
-import { DashboardMyCard } from "../DashboardMyCard/DashboardMyCard";
+import { MyCard } from "../MyCard/MyCard";
 import { RecentTransactionList } from "../RecentTransactionList/RecentTransactionList";
 import { WeeklyActivity } from "../WeeklyActivity/WeeklyActivity";
 import { ExpenseStatistics } from "../ExpenseStatistics/ExpenseStatistics";
@@ -20,7 +20,7 @@ const DashboardPage = () => {
   return (
     <Page>
       <div className="flex items-center w-full">
-        <DashboardMyCard />
+        <MyCard />
         <RecentTransactionList />
       </div>
       <div className="flex w-full flex-wrap">

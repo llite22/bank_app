@@ -1,7 +1,7 @@
 import { BankCard } from "@/entities/BankCard";
 import { useBankCard } from "@/entities/BankCard/api/bankCardApi";
 
-export const DashboardMyCard = () => {
+export const MyCard = () => {
   const {
     query: { data, isPending },
   } = useBankCard();

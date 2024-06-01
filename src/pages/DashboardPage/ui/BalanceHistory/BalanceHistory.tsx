@@ -1,7 +1,20 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
+import { useBalance } from "../../model/api/balanceApi";
 
 export const BalanceHistory = () => {
+  const {
+    query: { data, isPending },
+  } = useBalance();
+
+  if (isPending) {
+    return (
+      <div className="flex justify-center items-center w-full h-[100vh]">
+        Loading...
+      </div>
+    );
+  }
+
   const option = {
     xAxis: {
       type: "category",
@@ -25,9 +38,7 @@ export const BalanceHistory = () => {
     },
     series: [
       {
-        data: [
-          820, 932, 901, 934, 1290, 1330, 1600, 820, 932, 901, 934, 1290, 1330,
-        ],
+        data: data && data.data[0].history.map((t) => t.balance),
         type: "line",
         smooth: true,
       },
