@@ -1,13 +1,9 @@
-import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
-import { AuthContext } from "@/shared/lib/context/AuthContext";
-import { Button } from "@/shared/ui/Button/Button";
-import { useContext } from "react";
 import { MyCard } from "../MyCard/MyCard";
 import { RecentTransactionList } from "../RecentTransactionList/RecentTransactionList";
-import { WeeklyActivity } from "../WeeklyActivity/WeeklyActivity";
-import { ExpenseStatistics } from "../ExpenseStatistics/ExpenseStatistics";
 import { Page } from "@/widgets/Page";
-import { BalanceHistory } from "../BalanceHistory/BalanceHistory";
+import { WeeklyActivity } from "../WeeklyActivity";
+import { ExpenseStatistics } from "../ExpenseStatistics";
+import { BalanceHistory } from "../BalanceHistory";
 
 const DashboardPage = () => {
   return (
@@ -21,7 +17,6 @@ const DashboardPage = () => {
         <ExpenseStatistics />
         <BalanceHistory />
       </div>
-      {/* {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>} */}
     </Page>
   );
 };

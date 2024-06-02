@@ -1,7 +1,8 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
-import { useStatisctics } from "../../model/api/staticticsApi";
-export const ExpenseStatistics = () => {
+import { useStatisctics } from "../../../model/api/staticticsApi";
+
+const ExpenseStatistics = () => {
   const {
     query: { data, isPending },
   } = useStatisctics();
@@ -55,3 +56,5 @@ export const ExpenseStatistics = () => {
     </div>
   );
 };
+
+export default ExpenseStatistics;

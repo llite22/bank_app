@@ -1,10 +1,10 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
-import { useTransaction } from "../../model/api/transactionApi";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { Theme } from "@/shared/types/theme";
+import { useTransaction } from "../../../model/api/transactionApi";
 
-export const WeeklyActivity = () => {
+const WeeklyActivity = () => {
   const { theme } = useTheme();
   const {
     query: { data, isPending },
@@ -110,3 +110,5 @@ export const WeeklyActivity = () => {
     </div>
   );
 };
+
+export default WeeklyActivity;

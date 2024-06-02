@@ -1,8 +1,8 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
-import { useBalance } from "../../model/api/balanceApi";
+import { useBalance } from "../../../model/api/balanceApi";
 
-export const BalanceHistory = () => {
+const BalanceHistory = () => {
   const {
     query: { data, isPending },
   } = useBalance();
@@ -56,3 +56,5 @@ export const BalanceHistory = () => {
     </div>
   );
 };
+
+export default BalanceHistory;
