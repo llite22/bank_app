@@ -6,10 +6,28 @@ import NotificationIcon from "@/shared/assets/icons/notification.svg?react";
 import searchIcon from "@/shared/assets/icons/search.svg?react";
 import { Avatar, AvatarImage } from "@/shared/ui/Avatar/Avatar";
 import { useTranslation } from "react-i18next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/shared/ui/DropdownMenu/DropdownMenu";
+import { useContext } from "react";
+import { AuthContext } from "@/shared/lib/context/AuthContext";
+import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 
 export const Navbar = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
+  const { user, setUser } = useContext(AuthContext);
+
+  const onLogout = () => {
+    setUser?.(null);
+    localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+  };
+
   const formattedPath = pathname.charAt(1).toUpperCase() + pathname.slice(2);
 
   return (
@@ -28,12 +46,25 @@ export const Navbar = () => {
           <div className="bg-gray-100 rounded-full p-2 cursor-pointer">
             <Icon Svg={NotificationIcon} className="hover:animate-bounce" />
           </div>
-          <Avatar className="w-12 h-12 cursor-pointer">
-            <AvatarImage
-              src="https://sun9-25.userapi.com/impg/Z6gcJmmNs7tOo3Mxn7Cle73q-gVUqtNBVvIXdw/tDgLSLbOJWU.jpg?size=1620x2160&quality=95&sign=7de71b03032e5355f26fd626c242ca92&type=album"
-              alt="avatar"
-            />
-          </Avatar>
+          <DropdownMenu>
+            <DropdownMenuTrigger>
+              <Avatar className="w-12 h-12 cursor-pointer">
+                <AvatarImage
+                  src="https://sun9-25.userapi.com/impg/Z6gcJmmNs7tOo3Mxn7Cle73q-gVUqtNBVvIXdw/tDgLSLbOJWU.jpg?size=1620x2160&quality=95&sign=7de71b03032e5355f26fd626c242ca92&type=album"
+                  alt="avatar"
+                />
+              </Avatar>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent className="mr-1">
+              <DropdownMenuLabel>
+                Hi {user ? user.username : "error"}!
+              </DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem onClick={onLogout} className="cursor-pointer">
+                Logout
+              </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
         </div>
       </div>
       <hr className="border-gray-200" />

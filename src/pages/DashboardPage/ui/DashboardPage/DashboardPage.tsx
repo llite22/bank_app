@@ -10,13 +10,6 @@ import { Page } from "@/widgets/Page";
 import { BalanceHistory } from "../BalanceHistory/BalanceHistory";
 
 const DashboardPage = () => {
-  const { user, setUser } = useContext(AuthContext);
-
-  const onLogout = () => {
-    setUser?.(null);
-    localStorage.removeItem(USER_LOCALSTORAGE_KEY);
-  };
-
   return (
     <Page>
       <div className="flex items-center w-full">
@@ -28,8 +21,7 @@ const DashboardPage = () => {
         <ExpenseStatistics />
         <BalanceHistory />
       </div>
-      {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>}
-      <Button onClick={onLogout}>Выйти</Button>
+      {/* {user ? <div>Привет {user?.username}</div> : <div>Произошла ошибка</div>} */}
     </Page>
   );
 };
