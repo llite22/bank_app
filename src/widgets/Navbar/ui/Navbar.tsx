@@ -17,12 +17,16 @@ import {
 import { useContext } from "react";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
+import { useNotification } from "../api/notificationApi";
 
 export const Navbar = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const {
+    query: { data },
+  } = useNotification();
 
   const onLogout = () => {
     setUser?.(null);
@@ -45,9 +49,43 @@ export const Navbar = () => {
           <div className="bg-gray-100 rounded-full p-2 cursor-pointer">
             <Icon Svg={SettingIcon} className="hover:animate-spin" />
           </div>
-          <div className="bg-gray-100 rounded-full p-2 cursor-pointer">
-            <Icon Svg={NotificationIcon} className="hover:animate-bounce" />
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="bg-gray-100 rounded-full p-2 cursor-pointer">
+              <div className="relative">
+                <Icon Svg={NotificationIcon} />
+                <div
+                  className={`absolute top-0 right-0 w-3 h-3 rounded-full ${
+                    data && data.data[0].count > 0
+                      ? "bg-red-500 animate-pulse"
+                      : ""
+                  }`}
+                >
+                  {}
+                </div>
+              </div>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent>
+              <DropdownMenuLabel className="text-center">
+                Latest notifications
+              </DropdownMenuLabel>
+              {data &&
+                data.data[0].notification.map((item) => (
+                  <DropdownMenuItem className="cursor-pointer">
+                    <div className="flex flex-col w-full gap-1 p-2">
+                      <h1>{item.bank_name}</h1>
+                      <b>
+                        {item.currency === "RUB" ? "₽" : "$"}
+                        {item.amount}
+                      </b>
+                      <div className="flex flex-col">
+                        <b>{item.transaction_type}</b>
+                        <b>{item.message}</b>
+                      </div>
+                    </div>
+                  </DropdownMenuItem>
+                ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
           <DropdownMenu>
             <DropdownMenuTrigger>
               <Avatar className="w-12 h-12 cursor-pointer">
