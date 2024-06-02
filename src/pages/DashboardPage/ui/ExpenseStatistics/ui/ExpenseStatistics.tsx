@@ -30,11 +30,9 @@ const ExpenseStatistics = () => {
           show: true,
           position: "inside", // Разместить метки внутри
           formatter: "{b}\n{d}%", // Форматирование меток с названиями и процентами
-          textStyle: {
-            color: "#fff",
-            fontWeight: "bold",
-            padding: [0, 0, 0],
-          },
+          color: "#fff",
+          fontWeight: "bold",
+          padding: [0, 0, 0],
         },
         emphasis: {
           itemStyle: {

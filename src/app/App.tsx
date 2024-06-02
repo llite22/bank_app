@@ -5,6 +5,7 @@ import { useAuth } from "@/features/AuthByUsername/api/UserApi";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { Sidebar } from "@/widgets/Sidebar/ui/Sidebar/Sidebar";
 import { Navbar } from "@/widgets/Navbar";
+import { MoonLoader } from "react-spinners";
 
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
@@ -33,7 +34,13 @@ function App() {
 
   return (
     <div className="bg-white dark:bg-black">
-      <Suspense fallback="loading...">
+      <Suspense
+        fallback={
+          <div className="flex w-full justify-center items-center h-[100vh]">
+            <MoonLoader color={"#36d7b7"} loading={true} size={70} />
+          </div>
+        }
+      >
         <div className="flex">
           {user && <Sidebar />}
           <div className="flex flex-col w-full">

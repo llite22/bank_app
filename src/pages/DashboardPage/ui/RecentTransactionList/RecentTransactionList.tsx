@@ -23,12 +23,13 @@ export const RecentTransactionList = () => {
       <div className="p-4">
         <Card className="min-w-[350px] rounded-3xl">
           {data &&
-            data.data[0].recent_transactions.map((item) => (
+            data.data[0].recent_transactions.map((item, index) => (
               <RecentTransactionItem
                 type={item.type}
                 title={item.title}
                 date={item.date}
                 invoice={item.transaction}
+                key={index}
               />
             ))}
         </Card>
