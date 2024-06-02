@@ -1,6 +1,6 @@
 import { Icon } from "@/shared/ui/Icon/Icon";
 import { Input } from "@/shared/ui/Input/Input";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import SettingIcon from "@/shared/assets/icons/settings.svg?react";
 import NotificationIcon from "@/shared/assets/icons/notification.svg?react";
 import searchIcon from "@/shared/assets/icons/search.svg?react";
@@ -22,10 +22,12 @@ export const Navbar = () => {
   const { t } = useTranslation();
   const { pathname } = useLocation();
   const { user, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const onLogout = () => {
     setUser?.(null);
     localStorage.removeItem(USER_LOCALSTORAGE_KEY);
+    navigate("/login");
   };
 
   const formattedPath = pathname.charAt(1).toUpperCase() + pathname.slice(2);
