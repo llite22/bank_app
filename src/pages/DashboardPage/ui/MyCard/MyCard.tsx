@@ -6,14 +6,6 @@ export const MyCard = () => {
     query: { data, isPending },
   } = useBankCard();
 
-  if (isPending) {
-    return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
-      </div>
-    );
-  }
-
   return (
     <div>
       <div className="flex items-center justify-between max-w-3xl">
@@ -21,8 +13,8 @@ export const MyCard = () => {
         <h1 className="text-custom-blue text-xl font-bold pr-4">See All</h1>
       </div>
       <div className="flex items-center w-full">
-        <BankCard data={data?.data} isPending={isPending} />
-        <BankCard data={data?.data} isPending={isPending} inverted />
+        <BankCard data={data?.data[0]} isPending={isPending} />
+        <BankCard data={data?.data[0]} isPending={isPending} inverted />
       </div>
     </div>
   );

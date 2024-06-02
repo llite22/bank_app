@@ -1,4 +1,4 @@
-interface Banks {
+export interface Banks {
     id: number;
     user_id: number;
     balance: number;

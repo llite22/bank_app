@@ -57,7 +57,7 @@ export const Navbar = () => {
                 />
               </Avatar>
             </DropdownMenuTrigger>
-            <DropdownMenuContent className="mr-1">
+            <DropdownMenuContent className="mr-1 p-2">
               <DropdownMenuLabel>
                 Hi {user ? user.username : "error"}!
               </DropdownMenuLabel>

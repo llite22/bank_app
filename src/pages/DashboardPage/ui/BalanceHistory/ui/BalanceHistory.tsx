@@ -1,6 +1,7 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
 import { useBalance } from "../../../model/api/balanceApi";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const BalanceHistory = () => {
   const {
@@ -9,8 +10,8 @@ const BalanceHistory = () => {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
+      <div className="min-w-[730px] mt-20 ml-4">
+        <Skeleton className="h-[330px] rounded-3xl" />
       </div>
     );
   }

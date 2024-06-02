@@ -5,6 +5,7 @@ import { AppRoutesProps } from "@/shared/types/router";
 import { RequireAuth } from "./RequireAuth";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { getRouteDashboard, getRouteLogin } from "@/shared/const/router";
+import { MoonLoader } from "react-spinners";
 
 export const AppRouter = () => {
   const { pathname } = useLocation();
@@ -32,8 +33,8 @@ export const AppRouter = () => {
   return (
     <Suspense
       fallback={
-        <div className="flex justify-center items-center w-full h-[100vh]">
-          loading...
+        <div className="flex w-full justify-center items-center h-[100vh]">
+          <MoonLoader color={"#36d7b7"} loading={true} size={70} />
         </div>
       }
     >

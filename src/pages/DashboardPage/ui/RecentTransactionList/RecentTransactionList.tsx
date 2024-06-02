@@ -1,6 +1,7 @@
 import { Card } from "@/shared/ui/Card/Card";
 import { RecentTransactionItem } from "../RecentTransactionItem/RecentTransactionItem";
 import { useRecent } from "../../model/api/recentApi";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 export const RecentTransactionList = () => {
   const {
@@ -9,8 +10,16 @@ export const RecentTransactionList = () => {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
+      <div className="min-w-[350px] pt-4">
+        <div className="p-3">
+          <Skeleton className="w-[325px] h-[60px]" />
+        </div>
+        <div className="p-3">
+          <Skeleton className="w-[325px] h-[60px]" />
+        </div>
+        <div className="p-3">
+          <Skeleton className="w-[325px] h-[60px]" />
+        </div>
       </div>
     );
   }
@@ -21,7 +30,7 @@ export const RecentTransactionList = () => {
         Recent Transaction
       </h1>
       <div className="p-4">
-        <Card className="min-w-[350px] rounded-3xl">
+        <Card className="min-w-[350px] h-[245px] rounded-3xl">
           {data &&
             data.data[0].recent_transactions.map((item, index) => (
               <RecentTransactionItem

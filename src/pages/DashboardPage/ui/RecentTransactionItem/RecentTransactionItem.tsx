@@ -16,7 +16,7 @@ export const RecentTransactionItem = ({
   invoice: string;
 }) => {
   return (
-    <CardContent className="flex w-full items-center gap-4 p-3 pb-[14px]">
+    <CardContent className="flex w-full items-center gap-4 p-3">
       <Icon
         Svg={
           type === "deposit"

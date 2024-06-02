@@ -3,6 +3,7 @@ import ReactECharts from "echarts-for-react";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { Theme } from "@/shared/types/theme";
 import { useTransaction } from "../../../model/api/transactionApi";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const WeeklyActivity = () => {
   const { theme } = useTheme();
@@ -12,8 +13,8 @@ const WeeklyActivity = () => {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
+      <div className="min-w-[730px] mt-20 ml-4">
+        <Skeleton className="h-[330px] rounded-3xl" />
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import { Card } from "@/shared/ui/Card/Card";
 import ReactECharts from "echarts-for-react";
 import { useStatisctics } from "../../../model/api/staticticsApi";
+import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const ExpenseStatistics = () => {
   const {
@@ -9,8 +10,8 @@ const ExpenseStatistics = () => {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
+      <div className="min-w-[350px] mt-20 ml-9">
+        <Skeleton className="h-[330px] rounded-3xl" />
       </div>
     );
   }
