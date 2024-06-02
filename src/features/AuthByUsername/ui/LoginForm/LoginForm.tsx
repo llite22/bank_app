@@ -64,6 +64,7 @@ const LoginForm = () => {
                     <FormLabel>Username</FormLabel>
                     <FormControl>
                       <Input
+                        autoFocus
                         className="border-4 border-double rounded-lg border-sky-500"
                         placeholder="username"
                         {...field}
