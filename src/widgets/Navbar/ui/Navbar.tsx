@@ -18,6 +18,7 @@ import { useContext } from "react";
 import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { useNotification } from "../api/notificationApi";
+import { MoonLoader } from "react-spinners";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -25,7 +26,7 @@ export const Navbar = () => {
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const {
-    query: { data },
+    query: { data, isPending, isError },
   } = useNotification();
 
   const onLogout = () => {
@@ -59,15 +60,23 @@ export const Navbar = () => {
                       ? "bg-red-500 animate-pulse"
                       : ""
                   }`}
-                >
-                  {}
-                </div>
+                ></div>
               </div>
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel className="text-center">
                 Latest notifications
               </DropdownMenuLabel>
+              {isPending && (
+                <div className="flex justify-center items-center">
+                  <MoonLoader color={"#36d7b7"} loading={true} size={40} />
+                </div>
+              )}
+              {isError && (
+                <div className="flex justify-center items-center h-[100vh]">
+                  Error
+                </div>
+              )}
               {data &&
                 data.data[0].notification.map((item) => (
                   <DropdownMenuItem className="cursor-pointer">

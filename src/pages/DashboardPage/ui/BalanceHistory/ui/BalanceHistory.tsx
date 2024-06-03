@@ -5,13 +5,23 @@ import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const BalanceHistory = () => {
   const {
-    query: { data, isPending },
+    query: { data, isPending, isError },
   } = useBalance();
 
   if (isPending) {
     return (
       <div className="min-w-[730px] mt-20 ml-4">
         <Skeleton className="h-[330px] rounded-3xl" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="p-4 min-w-[720px]">
+        <h1 className="flex justify-center items-center h-[330px]">
+          There was an error
+        </h1>
       </div>
     );
   }

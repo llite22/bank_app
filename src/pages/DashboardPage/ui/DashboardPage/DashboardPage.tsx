@@ -8,7 +8,7 @@ import { BalanceHistory } from "../BalanceHistory";
 const DashboardPage = () => {
   return (
     <Page>
-      <div className="flex items-center w-full">
+      <div className="flex w-full">
         <MyCard />
         <RecentTransactionList />
       </div>

@@ -6,7 +6,7 @@ export const NotFoundPage = () => {
   return (
     <Page>
       <div className="flex justify-center items-center w-full h-custom">
-        <h1>{t("Страница не найдена")}</h1>
+        <h1>{t("Page not found")}</h1>
       </div>
     </Page>
   );

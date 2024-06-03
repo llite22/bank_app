@@ -5,7 +5,7 @@ import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 export const RecentTransactionList = () => {
   const {
-    query: { data, isPending },
+    query: { data, isPending, isError },
   } = useRecent();
 
   if (isPending) {
@@ -19,6 +19,21 @@ export const RecentTransactionList = () => {
         </div>
         <div className="p-3">
           <Skeleton className="w-[325px] h-[60px]" />
+        </div>
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div>
+        <h1 className="pl-4 text-custom-blue text-xl font-bold">
+          Recent Transaction
+        </h1>
+        <div className="min-w-[350px] p-4">
+          <h1 className="flex justify-center items-center h-[240px]">
+            There was an error
+          </h1>
         </div>
       </div>
     );

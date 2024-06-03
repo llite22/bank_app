@@ -16,10 +16,12 @@ export const BankCard = ({
   data,
   isPending,
   inverted = false,
+  isError,
 }: {
   data?: Banks;
   isPending?: boolean;
   inverted?: boolean;
+  isError?: boolean;
 }) => {
   const formatCardNumber = (cardNumber: number): string => {
     if (!cardNumber) return "";
@@ -37,6 +39,16 @@ export const BankCard = ({
       <div className="p-4 min-w-[350px]">
         <Skeleton className="h-[170px] rounded-t-3xl" />
         <Skeleton className="h-[70px] mt-1 rounded-b-3xl" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="p-4 min-w-[350px]">
+        <h1 className="flex justify-center items-center h-[240px]">
+          There was an error
+        </h1>
       </div>
     );
   }

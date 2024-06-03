@@ -5,13 +5,23 @@ import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const ExpenseStatistics = () => {
   const {
-    query: { data, isPending },
+    query: { data, isPending, isError },
   } = useStatisctics();
 
   if (isPending) {
     return (
       <div className="min-w-[350px] mt-20 ml-9">
         <Skeleton className="h-[330px] rounded-3xl" />
+      </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="p-4 min-w-[350px]">
+        <h1 className="flex justify-center items-center h-[330px]">
+          There was an error
+        </h1>
       </div>
     );
   }

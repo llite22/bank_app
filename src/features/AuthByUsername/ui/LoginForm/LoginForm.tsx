@@ -14,6 +14,7 @@ import { Button } from "@/shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import i18n from "@/shared/config/i18n/i18n";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
+import { MoonLoader } from "react-spinners";
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -27,7 +28,7 @@ const formSchema = z.object({
 const LoginForm = () => {
   const { t } = useTranslation();
   const { mutation } = useAuth();
-  const { mutate, isPending } = mutation();
+  const { mutate, isPending, isError } = mutation();
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -39,9 +40,15 @@ const LoginForm = () => {
 
   if (isPending) {
     return (
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        Loading...
+      <div className="flex w-full justify-center items-center h-[100vh]">
+        <MoonLoader color={"#36d7b7"} loading={true} size={70} />
       </div>
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="flex justify-center items-center h-[100vh]">Error</div>
     );
   }
 
