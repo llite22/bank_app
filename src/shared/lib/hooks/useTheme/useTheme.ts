@@ -11,15 +11,7 @@ interface UseThemeResult {
 
 export function useTheme(): UseThemeResult {
     const { theme, setTheme } = useContext(ThemeContext);
-
-    useEffect(() => {
-        if (theme === Theme.DARK) {
-            document.documentElement.classList.add(Theme.DARK);
-        } else {
-            document.documentElement.classList.remove(Theme.DARK);
-        }
-    }, [theme]);
-
+    
     const toggleTheme = () => {
         const newTheme = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
         setTheme?.(newTheme);

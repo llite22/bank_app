@@ -6,13 +6,24 @@ import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { Sidebar } from "@/widgets/Sidebar/ui/Sidebar/Sidebar";
 import { Navbar } from "@/widgets/Navbar";
 import { MoonLoader } from "react-spinners";
+import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
+import { Theme } from "@/shared/types/theme";
 
+const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
+  const { theme } = useTheme();
   const {
     query: { refetch },
   } = useAuth();
-  const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
+
+  useEffect(() => {
+    if (theme === Theme.DARK) {
+      document.documentElement.classList.add(Theme.DARK);
+    } else {
+      document.documentElement.classList.remove(Theme.DARK);
+    }
+  }, [theme]);
 
   useEffect(() => {
     if (token) {
@@ -41,7 +52,7 @@ function App() {
           </div>
         }
       >
-        <div className="flex">
+        <div className="flex dark:bg-black">
           {user && <Sidebar />}
           <div className="flex flex-col w-full">
             {user && <Navbar />}
