@@ -40,7 +40,7 @@ export const Navbar = () => {
   return (
     <header>
       <div className="flex items-center w-full gap-72 p-7">
-        <h1 className="text-custom-blue text-2xl font-bold">{formattedPath}</h1>
+        <h1 className="text-custom-blue text-2xl font-bold">{t(formattedPath)}</h1>
         <div className="flex items-center ml-auto gap-6">
           <Input
             placeholder={t("Search for something")}
