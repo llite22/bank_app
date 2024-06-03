@@ -98,6 +98,10 @@ const WeeklyActivity = () => {
     yAxis: {
       type: "value",
     },
+    tooltip: {
+      trigger: "item",
+      formatter: "{b}: ${c}",
+    },
     legend: {
       data: ["Deposit", "Withdraw"],
       orient: "horizontal",

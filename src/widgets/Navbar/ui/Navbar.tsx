@@ -79,7 +79,7 @@ export const Navbar = () => {
               )}
               {data &&
                 data.data[0].notification.map((item) => (
-                  <DropdownMenuItem className="cursor-pointer">
+                  <DropdownMenuItem key={item.id} className="cursor-pointer">
                     <div className="flex flex-col w-full gap-1 p-2">
                       <h1>{t(item.bank_name)}</h1>
                       <b>
