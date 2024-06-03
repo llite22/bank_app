@@ -9,9 +9,9 @@ import { MoonLoader } from "react-spinners";
 
 export const AppRouter = () => {
   const { pathname } = useLocation();
-  const { user } = useContext(AuthContext);
+  const { user, isLoading } = useContext(AuthContext);
 
-  if (user && pathname === getRouteLogin()) {
+  if (user && !isLoading && pathname === getRouteLogin()) {
     return <Navigate to={getRouteDashboard()} replace />;
   }
   const renderWithWrapper = (route: AppRoutesProps) => {

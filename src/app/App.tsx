@@ -9,13 +9,13 @@ import { MoonLoader } from "react-spinners";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
 import { Theme } from "@/shared/types/theme";
 
-const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
   const { theme } = useTheme();
   const {
     query: { refetch },
   } = useAuth();
+  const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 
   useEffect(() => {
     if (theme === Theme.DARK) {
@@ -56,7 +56,7 @@ function App() {
           {user && <Sidebar />}
           <div className="flex flex-col w-full">
             {user && <Navbar />}
-            {!isLoading  && <AppRouter />}
+            {!isLoading && (user || !token) && <AppRouter />}
           </div>
         </div>
       </Suspense>
