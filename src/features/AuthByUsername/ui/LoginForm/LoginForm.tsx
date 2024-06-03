@@ -16,19 +16,19 @@ import i18n from "@/shared/config/i18n/i18n";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
 import { MoonLoader } from "react-spinners";
 
-const formSchema = z.object({
-  username: z.string().min(2, {
-    message: i18n.t("Username must be at least 2 characters"),
-  }),
-  password: z
-    .string()
-    .min(2, { message: i18n.t("Password must be at least 2 characters") }),
-});
-
 const LoginForm = () => {
   const { t } = useTranslation();
   const { mutation } = useAuth();
   const { mutate, isPending, isError } = mutation();
+
+  const formSchema = z.object({
+    username: z.string().min(2, {
+      message: t("Username must be at least 2 characters"),
+    }),
+    password: z
+      .string()
+      .min(2, { message: t("Password must be at least 2 characters") }),
+  });
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
