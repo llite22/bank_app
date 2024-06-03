@@ -12,7 +12,6 @@ import {
 import { Input } from "@/shared/ui/Input/Input";
 import { Button } from "@/shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
-import i18n from "@/shared/config/i18n/i18n";
 import { useAuth } from "@/features/AuthByUsername/api/UserApi";
 import { MoonLoader } from "react-spinners";
 

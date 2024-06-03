@@ -47,6 +47,10 @@ const BalanceHistory = () => {
     yAxis: {
       type: "value",
     },
+    tooltip: {
+      trigger: "item",
+      formatter: "{b}: ${c}",
+    },
     series: [
       {
         data: data && data.data[0].history.map((t) => t.balance),
