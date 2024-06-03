@@ -56,7 +56,7 @@ function App() {
           {user && <Sidebar />}
           <div className="flex flex-col w-full">
             {user && <Navbar />}
-            {!isLoading && (user || !token) && <AppRouter />}
+            {!isLoading  && <AppRouter />}
           </div>
         </div>
       </Suspense>

@@ -20,7 +20,7 @@ import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { useNotification } from "../api/notificationApi";
 import { MoonLoader } from "react-spinners";
 import { AppLink } from "@/shared/ui/AppLink/AppLink";
-import { getRouteSetting } from "@/shared/const/router";
+import { getRouteLogin, getRouteSetting } from "@/shared/const/router";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -34,7 +34,7 @@ export const Navbar = () => {
   const onLogout = () => {
     setUser?.(null);
     localStorage.removeItem(USER_LOCALSTORAGE_KEY);
-    navigate("/login");
+    navigate(getRouteLogin());
   };
 
   const formattedPath = pathname.charAt(1).toUpperCase() + pathname.slice(2);
