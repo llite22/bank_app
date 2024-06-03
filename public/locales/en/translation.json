@@ -1,3 +1,20 @@
 {
-  "Hello": "Hello"
+  "Search for something": "Search for something",
+  "Hi": "Hi",
+  "Logout": "Logout",
+  "Latest notifications": "Latest notifications",
+  "Your bank": "Your bank",
+  "Debit": "Debit",
+  "Withdrawal of funds": "Withdrawel of funds",
+  "Crediting of funds": "Crediting of funds",
+  "Dashboard": "Dashboard",
+  "Transactions": "Transactions",
+  "Accounts": "Accounts",
+  "Investments": "Investments",
+  "Credit Cards": "Credit Cards",
+  "Loans": "Loans",
+  "Services": "Services",
+  "My Privileges": "My Privileges",
+  "Setting": "Setting",
+  "Page not found": "Page not found"
 }

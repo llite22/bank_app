@@ -1,3 +1,20 @@
 {
-  "Hello": "Привет"
+  "Search for something": "Поиск по названию",
+  "Hi": "Привет",
+  "Logout": "Выход",
+  "Latest notifications": "Последние уведомления",
+  "Your bank": "Ваш банк",
+  "Debit": "Дебетовая",
+  "Withdrawal of funds": "Списание средств",
+  "Crediting of funds": "Пополнение средств",
+  "Dashboard": "Панель управления",
+  "Transactions": "Транзакции",
+  "Accounts": "Счета",
+  "Investments": "Инвестиции",
+  "Credit Cards": "Кредитные карты",
+  "Loans": "Кредиты",
+  "Services": "Сервисы",
+  "My Privileges": "Мои привилегии",
+  "Setting": "Настройки",
+  "Page not found": "Страница не найдена"
 }

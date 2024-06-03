@@ -65,7 +65,7 @@ export const Navbar = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent>
               <DropdownMenuLabel className="text-center">
-                Latest notifications
+                {t("Latest notifications")}
               </DropdownMenuLabel>
               {isPending && (
                 <div className="flex justify-center items-center">
@@ -81,14 +81,14 @@ export const Navbar = () => {
                 data.data[0].notification.map((item) => (
                   <DropdownMenuItem className="cursor-pointer">
                     <div className="flex flex-col w-full gap-1 p-2">
-                      <h1>{item.bank_name}</h1>
+                      <h1>{t(item.bank_name)}</h1>
                       <b>
                         {item.currency === "RUB" ? "₽" : "$"}
                         {item.amount}
                       </b>
                       <div className="flex flex-col">
-                        <b>{item.transaction_type}</b>
-                        <b>{item.message}</b>
+                        <b>{t(item.transaction_type)}</b>
+                        <b>{t(item.message)}</b>
                       </div>
                     </div>
                   </DropdownMenuItem>
@@ -106,11 +106,11 @@ export const Navbar = () => {
             </DropdownMenuTrigger>
             <DropdownMenuContent className="mr-1 p-2">
               <DropdownMenuLabel>
-                Hi {user ? user.username : "error"}!
+                {t("Hi")} {user ? user.username : "error"}!
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={onLogout} className="cursor-pointer">
-                Logout
+                {t("Logout")}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
