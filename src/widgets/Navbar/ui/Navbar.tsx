@@ -123,7 +123,7 @@ export const Navbar = () => {
           </DropdownMenu>
         </div>
       </div>
-      <hr className="border-gray-200" />
+      <div className="h-[4px] w-full bg-gray-200"></div>
     </header>
   );
 };

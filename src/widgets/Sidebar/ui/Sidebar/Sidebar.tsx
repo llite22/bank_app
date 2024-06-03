@@ -20,7 +20,7 @@ export const Sidebar = () => {
         <LangSwitcher />
         <ThemeSwitcher />
       </div>
-      <div className="absolute top-0 right-0 h-full w-[2px] bg-gray-100"></div>
+      <div className="absolute top-0 right-0 h-full w-[4px] bg-gray-200"></div>
     </aside>
   );
 };
