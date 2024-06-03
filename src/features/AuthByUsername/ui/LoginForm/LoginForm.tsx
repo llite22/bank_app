@@ -18,11 +18,11 @@ import { MoonLoader } from "react-spinners";
 
 const formSchema = z.object({
   username: z.string().min(2, {
-    message: i18n.t("Username must be at least 2 characters."),
+    message: i18n.t("Username must be at least 2 characters"),
   }),
   password: z
     .string()
-    .min(2, { message: i18n.t("Password must be at least 2 characters.") }),
+    .min(2, { message: i18n.t("Password must be at least 2 characters") }),
 });
 
 const LoginForm = () => {
@@ -68,12 +68,12 @@ const LoginForm = () => {
                 name="username"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Username</FormLabel>
+                    <FormLabel>{t("Username")}</FormLabel>
                     <FormControl>
                       <Input
                         autoFocus
                         className="border-4 border-double rounded-lg border-sky-500"
-                        placeholder="username"
+                        placeholder={t("Username")}
                         {...field}
                       />
                     </FormControl>
@@ -86,11 +86,11 @@ const LoginForm = () => {
                 name="password"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Password</FormLabel>
+                    <FormLabel>{t("Password")}</FormLabel>
                     <FormControl>
                       <Input
                         className="border-4 border-double rounded-lg border-sky-500"
-                        placeholder="password"
+                        placeholder={t("Password")}
                         type="password"
                         {...field}
                       />

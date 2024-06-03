@@ -16,5 +16,10 @@
   "Services": "Сервисы",
   "My Privileges": "Мои привилегии",
   "Setting": "Настройки",
-  "Page not found": "Страница не найдена"
+  "Page not found": "Страница не найдена",
+  "Login": "Логин",
+  "Username must be at least 2 characters": "Имя пользователя должно содержать не менее 2-х символов",
+  "Password must be at least 2 characters": "Пароль должен содержать не менее 2-х символов",
+  "Username": "Имя пользователя",
+  "Password": "Пароль"
 }

@@ -16,5 +16,10 @@
   "Services": "Services",
   "My Privileges": "My Privileges",
   "Setting": "Setting",
-  "Page not found": "Page not found"
+  "Page not found": "Page not found",
+  "Login": "Login",
+  "Username must be at least 2 characters": "Username must be at least 2 characters",
+  "Password must be at least 2 characters": "Password must be at least 2 characters",
+  "Username": "Username",
+  "Password": "Password"
 }
