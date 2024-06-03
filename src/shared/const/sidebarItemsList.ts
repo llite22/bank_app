@@ -18,37 +18,45 @@ export const sidebarItemsList = [
     {
         path: getRouteTransactions(),
         text: "Transactions",
-        Icon: TransactionsIcon
+        Icon: TransactionsIcon,
+        disabled: true
     },
     {
         path: getRouteAccounts(),
         text: "Accounts",
-        Icon: AccountsIcon
+        Icon: AccountsIcon,
+        disabled: true
     },
     {
         path: getRouteInvestments(),
         text: "Investments",
-        Icon: InvestmentsIcon
+        Icon: InvestmentsIcon,
+        disabled: true
     },
     {
         path: getRouteCreditCards(),
         text: "Credit Cards",
-        Icon: CreditCardIcon
+        Icon: CreditCardIcon,
+        disabled: true
     },
     {
         path: getRouteLoans(),
         text: "Loans",
-        Icon: LoansIcon
+        Icon: LoansIcon,
+        disabled: true
     },
     {
         path: getRouteServices(),
         text: "Services",
-        Icon: ServicesIcon
+        Icon: ServicesIcon,
+        disabled: true
     },
     {
         path: getRouteMyPrivileges(),
         text: "My Privileges",
-        Icon: MyPrivilegesIcon
+        Icon: MyPrivilegesIcon,
+        disabled: true
+
     },
     {
         path: getRouteSetting(),

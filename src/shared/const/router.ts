@@ -9,7 +9,7 @@ export enum AppRoutes {
     // Loans = "loans",
     // Services = "services",
     // MyPrivileges = "myprivileges",
-    // Setting = "setting",
+    Setting = "setting",
 
     Not_Found = "not_found",
 }

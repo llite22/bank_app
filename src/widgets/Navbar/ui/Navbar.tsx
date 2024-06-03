@@ -19,6 +19,8 @@ import { AuthContext } from "@/shared/lib/context/AuthContext";
 import { USER_LOCALSTORAGE_KEY } from "@/shared/const/localstorage";
 import { useNotification } from "../api/notificationApi";
 import { MoonLoader } from "react-spinners";
+import { AppLink } from "@/shared/ui/AppLink/AppLink";
+import { getRouteSetting } from "@/shared/const/router";
 
 export const Navbar = () => {
   const { t } = useTranslation();
@@ -40,16 +42,21 @@ export const Navbar = () => {
   return (
     <header>
       <div className="flex items-center w-full gap-72 p-7">
-        <h1 className="text-custom-blue text-2xl font-bold">{t(formattedPath)}</h1>
+        <h1 className="text-custom-blue text-2xl font-bold">
+          {t(formattedPath)}
+        </h1>
         <div className="flex items-center ml-auto gap-6">
           <Input
             placeholder={t("Search for something")}
             className="relative w-52 pl-12 h-10 rounded-2xl bg-gray-100 text-gray-400 placeholder-gray-400"
           />
           <Icon className="absolute ml-5" Svg={searchIcon} />
-          <div className="bg-gray-100 rounded-full p-2 cursor-pointer">
+          <AppLink
+            to={getRouteSetting()}
+            className="bg-gray-100 rounded-full p-2 cursor-pointer"
+          >
             <Icon Svg={SettingIcon} className="hover:animate-spin" />
-          </div>
+          </AppLink>
           <DropdownMenu>
             <DropdownMenuTrigger className="bg-gray-100 rounded-full p-2 cursor-pointer">
               <div className="relative">

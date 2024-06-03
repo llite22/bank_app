@@ -54,61 +54,59 @@ const LoginForm = () => {
   const onSubmit = (data: z.infer<typeof formSchema>) => mutate(data);
 
   return (
-    <section>
-      <div className="flex justify-center items-center w-full h-[100vh]">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="border-4 border-dashed rounded-lg border-sky-500 p-16"
-          >
-            <div className="min-w-[300px] space-y-8">
-              <FormField
-                control={form.control}
-                name="username"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("Username")}</FormLabel>
-                    <FormControl>
-                      <Input
-                        autoFocus
-                        className="border-4 border-double rounded-lg border-sky-500"
-                        placeholder={t("Username")}
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>{t("Password")}</FormLabel>
-                    <FormControl>
-                      <Input
-                        className="border-4 border-double rounded-lg border-sky-500"
-                        placeholder={t("Password")}
-                        type="password"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <Button
-                className="w-full border-4 border-double rounded-lg border-sky-500 bg-blue-800 "
-                type="submit"
-              >
-                {t("Login")}
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </div>
-    </section>
+    <div className="flex justify-center items-center w-full h-[100vh]">
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="border-4 border-dashed rounded-lg border-sky-500 p-16"
+        >
+          <div className="min-w-[300px] space-y-8">
+            <FormField
+              control={form.control}
+              name="username"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("Username")}</FormLabel>
+                  <FormControl>
+                    <Input
+                      autoFocus
+                      className="border-4 border-double rounded-lg border-sky-500"
+                      placeholder={t("Username")}
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>{t("Password")}</FormLabel>
+                  <FormControl>
+                    <Input
+                      className="border-4 border-double rounded-lg border-sky-500"
+                      placeholder={t("Password")}
+                      type="password"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <Button
+              className="w-full border-4 border-double rounded-lg border-sky-500 bg-blue-800 "
+              type="submit"
+            >
+              {t("Login")}
+            </Button>
+          </div>
+        </form>
+      </Form>
+    </div>
   );
 };
 

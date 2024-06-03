@@ -7,22 +7,20 @@ import { LangSwitcher } from "@/widgets/LangSwitcher";
 
 export const Sidebar = () => {
   return (
-    <aside className="relative w-[250px]">
+    <aside className="relative min-w-[250px]">
       <div className="p-10">
         <Icon Svg={LogoIcon} />
       </div>
-      <div className="flex flex-col gap-4">
-        {sidebarItemsList.map((item) => (
-          <SidebarItem key={item.path} item={item} />
-        ))}
-        <div className="absolute bottom-5 left-1/2 -translate-x-1/2">
-          <ThemeSwitcher />
-        </div>
-        <div className="absolute bottom-16 left-1/2 -translate-x-1/2">
-          <LangSwitcher />
-        </div>
+      <div className="flex flex-col gap-4 h-[70%]">
+        {sidebarItemsList.map((item) =>
+          item.disabled ? null : <SidebarItem key={item.path} item={item} />
+        )}
       </div>
-      <div className="absolute top-0 right-0 h-full w-[1px] bg-gray-100"></div>
+      <div className="flex flex-col items-center gap-4">
+        <LangSwitcher />
+        <ThemeSwitcher />
+      </div>
+      <div className="absolute top-0 right-0 h-full w-[2px] bg-gray-100"></div>
     </aside>
   );
 };
