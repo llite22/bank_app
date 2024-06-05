@@ -1,19 +1,18 @@
 
-import { useMutation, UseMutationResult } from '@tanstack/react-query'
+import { useMutation } from '@tanstack/react-query'
 import { $api } from '@/shared/api/api'
-import { AxiosError, AxiosResponse } from 'axios';
 
 interface UploadResponse {
     id: string;
     url: string;
 };
 
-export const useImage = (): { mutation: UseMutationResult<AxiosResponse<UploadResponse>, AxiosError, File> } => {
-    const mutation = useMutation<AxiosResponse<UploadResponse>, AxiosError, File>({
+export const useImage = () => {
+    const mutation = useMutation({
         mutationFn: (file: File) => {
             const formData = new FormData();
             formData.append('file', file);
-            return $api.post('/uploads', formData);
+            return $api.post<UploadResponse>('/uploads', formData);
         },
         onError: (error) => {
             console.error(error)

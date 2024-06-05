@@ -7,9 +7,9 @@ import { RecentData } from '../types/recent'
 export const useRecent = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery<RecentData>({
+    const query = useQuery({
         queryKey: ['recents', user?.id],
-        queryFn: () => $api.get(`/recents?user_id=${user?.id}`)
+        queryFn: () => $api.get<RecentData[]>(`/recents?user_id=${user?.id}`)
     });
 
     return {

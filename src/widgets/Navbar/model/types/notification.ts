@@ -9,13 +9,9 @@ export interface Notifications {
     message: string;
 }
 
-interface NotificationsItem {
+
+export interface NotificationsData {
     user_id: number;
     count: number;
     notification: Notifications[];
-}
-
-
-export interface NotificationsData {
-    data: NotificationsItem[];
 }

@@ -4,11 +4,7 @@ interface Transaction {
     withdraw: number | string;
 }
 
-interface TransactionItem {
+export interface TransactionsData {
     user_id: number;
     transactions: Transaction[];
-}
-
-export interface TransactionsData {
-    data: TransactionItem[];
 }

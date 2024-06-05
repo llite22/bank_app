@@ -5,8 +5,6 @@ export interface User {
 }
 
 export interface UserSchema {
-    data: {
-        token: string
-        data: User
-    }
+    token: string
+    data: User
 }

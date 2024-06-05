@@ -14,12 +14,12 @@ export const MyCard = () => {
       </div>
       <div className="flex items-center w-full">
         <BankCard
-          data={data?.data[0]}
+          data={data?.data[0].banks[0]}
           isPending={isPending}
           isError={isError}
         />
         <BankCard
-          data={data?.data[0]}
+          data={data?.data[0].banks[0]}
           isPending={isPending}
           inverted
           isError={isError}

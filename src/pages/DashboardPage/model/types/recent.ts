@@ -1,8 +1,3 @@
-interface UserData {
-    user_id: number;
-    recent_transactions: Recent[];
-}
-
 interface Recent {
     title: string;
     date: string;
@@ -12,5 +7,6 @@ interface Recent {
 
 
 export interface RecentData {
-    data: UserData[];
+    user_id: number;
+    recent_transactions: Recent[];
 }

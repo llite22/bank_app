@@ -1,8 +1,3 @@
-interface UserData {
-    user_id: number;
-    statistics: Statistic[];
-}
-
 interface Statistic {
     value: number;
     name: string;
@@ -15,5 +10,6 @@ interface ItemStyle {
 }
 
 export interface StatisticData {
-    data: UserData[];
+    user_id: number;
+    statistics: Statistic[];
 }

@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from '@tanstack/react-query'
-import { UserSchema } from '../../../entities/User/model/types/user'
+import { UserSchema, User } from '../../../entities/User/model/types/user'
 import { useContext } from 'react'
 import { AuthContext } from '@/shared/lib/context/AuthContext'
 import { $api } from '@/shared/api/api'
@@ -15,9 +15,9 @@ interface LoginByUsernameProps {
 export const useAuth = () => {
     const navigate = useNavigate()
     const { setUser } = useContext(AuthContext)
-    const mutation = () => useMutation<UserSchema, Error, LoginByUsernameProps>({
-        mutationFn: ({ username, password }) => {
-            return $api.post('/auth', { username, password })
+    const mutation = useMutation({
+        mutationFn: ({ username, password }: LoginByUsernameProps) => {
+            return $api.post<UserSchema>('/auth', { username, password })
         },
         onSuccess: ({ data }) => {
             if (data) {
@@ -34,7 +34,7 @@ export const useAuth = () => {
     })
     const query = useQuery({
         queryKey: ['auth'],
-        queryFn: () => $api.get('/auth_me'),
+        queryFn: () => $api.get<User>('/auth_me'),
         enabled: false
     })
     return {

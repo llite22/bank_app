@@ -7,6 +7,8 @@ const BalanceHistory = () => {
   const {
     query: { data, isPending, isError },
   } = useBalance();
+  console.log(data);
+  
 
   if (isPending) {
     return (

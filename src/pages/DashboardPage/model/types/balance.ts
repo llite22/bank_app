@@ -1,13 +1,9 @@
-interface UserData {
-    user_id: number;
-    history: Balance[];
-}
-
-interface Balance {
+export interface Balance {
     mount: string;
     balance: number;
 }
 
 export interface BalanceData {
-    data: UserData[];
+    user_id: number;
+    history: Balance[];
 }

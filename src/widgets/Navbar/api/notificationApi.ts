@@ -4,13 +4,12 @@ import { AuthContext } from '@/shared/lib/context/AuthContext'
 import { $api } from '@/shared/api/api'
 import { NotificationsData } from '../model/types/notification'
 
-
 export const useNotification = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery<NotificationsData>({
+    const query = useQuery({
         queryKey: ['notification', user?.id],
-        queryFn: () => $api.get(`/notifications?user_id=${user?.id}`)
+        queryFn: () => $api.get<NotificationsData[]>(`/notifications?user_id=${user?.id}`)
     });
 
     return {

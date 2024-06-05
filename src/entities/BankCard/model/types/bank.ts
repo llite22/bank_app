@@ -1,6 +1,5 @@
 export interface Banks {
     id: number;
-    user_id: number;
     balance: number;
     name: string;
     date: string;
@@ -8,5 +7,6 @@ export interface Banks {
 }
 
 export interface BanksData {
-    data: Banks[];
+    user_id: number,
+    banks: Banks[]
 }
