@@ -6,6 +6,6 @@ export const $api = axios.create({
     headers: {
         authorization: `Bearer ${localStorage.getItem(USER_LOCALSTORAGE_KEY)}` || '',
         Accept: import.meta.env.VITE_APP_ACCEPT,
-        'Content-Type': import.meta.env.VITE_APP_CONTENT_TYPE
+        // 'Content-Type': import.meta.env.VITE_APP_CONTENT_TYPE
     }
 })

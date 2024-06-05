@@ -15,9 +15,16 @@ import { useTranslation } from "react-i18next";
 import { Avatar, AvatarImage } from "@/shared/ui/Avatar/Avatar";
 import EditIcon from "@/shared/assets/icons/edit.svg?react";
 import { Icon } from "@/shared/ui/Icon/Icon";
+import { useState } from "react";
+import { ImageModal } from "@/shared/ui/ImageModal/ImageModal";
+import { useImage } from "../../api/imageUploadApi";
+import { MoonLoader } from "react-spinners";
 
 export const EditProfile = () => {
   const { t } = useTranslation();
+  const { mutation } = useImage();
+  const { mutate, isPending, isError, data } = mutation;
+  const [isModal, setIsModal] = useState<boolean>(false);
 
   const formSchema = z.object({
     yourname: z.string().min(2, {
@@ -70,20 +77,29 @@ export const EditProfile = () => {
     console.log(data);
   };
 
+  const onOpenModal = () => {
+    setIsModal(true);
+  };
+
+  const onCloseModal = () => {
+    setIsModal(false);
+  };
+
   return (
     <div className="flex justify-center items-center w-full p-16 gap-8 border-2 border-gray-200 rounded-3xl">
       <div className="flex self-start relative">
+        {isPending && <MoonLoader color={"#36d7b7"} loading={true} size={60} />}
+        {isError && <p>{t("Error")}</p>}
         <Avatar className="w-[130px] h-[130px]">
-          <AvatarImage
-            src="https://sun9-25.userapi.com/impg/Z6gcJmmNs7tOo3Mxn7Cle73q-gVUqtNBVvIXdw/tDgLSLbOJWU.jpg?size=1620x2160&quality=95&sign=7de71b03032e5355f26fd626c242ca92&type=album"
-            alt="avatar"
-          />
+          <AvatarImage src={data ? data?.data.url : ""} alt="avatar" />
         </Avatar>
         <Icon
+          onClick={onOpenModal}
           className="absolute bottom-0 right-0 cursor-pointer"
           Svg={EditIcon}
         />
       </div>
+      {isModal && <ImageModal onCloseModal={onCloseModal} mutate={mutate} />}
       <Form {...form}>
         <form onSubmit={form.handleSubmit(onSubmit)}>
           <div className="min-w-[300px] flex w-full gap-12">
