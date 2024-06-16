@@ -4,13 +4,14 @@ import { useRecent } from "../../model/api/recentApi";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 export const RecentTransactionList = () => {
-  const {
-    query: { data, isPending, isError },
-  } = useRecent();
+  const { data, isPending, isError } = useRecent();
 
   if (isPending) {
     return (
-      <div className="min-w-[350px] pt-4">
+      <div className="min-w-[350px]">
+        <h1 className="pl-4 pb-3 text-custom-blue text-xl font-bold">
+          Recent Transaction
+        </h1>
         <div className="p-3">
           <Skeleton className="w-[325px] h-[60px]" />
         </div>
@@ -47,7 +48,7 @@ export const RecentTransactionList = () => {
       <div className="p-4">
         <Card className="min-w-[350px] h-[245px] rounded-3xl">
           {data &&
-            data.data[0].recent_transactions.map((item, index) => (
+            data.recent_transactions.map((item, index) => (
               <RecentTransactionItem
                 type={item.type}
                 title={item.title}

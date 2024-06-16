@@ -7,9 +7,7 @@ import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const WeeklyActivity = () => {
   const { theme } = useTheme();
-  const {
-    query: { data, isPending, isError },
-  } = useTransaction();
+  const { data, isPending, isError } = useTransaction();
 
   if (isPending) {
     return (
@@ -31,14 +29,14 @@ const WeeklyActivity = () => {
 
   const series = [
     {
-      data: data?.data[0].transactions.map((t) => t.deposit) || [],
+      data: data?.transactions.map((t) => t.deposit) || [],
       type: "bar",
       stack: "1",
       name: "Deposit",
       barWidth: 15,
     },
     {
-      data: data?.data[0].transactions.map((t) => t.withdraw) || [],
+      data: data?.transactions.map((t) => t.withdraw) || [],
       type: "bar",
       stack: "2",
       name: "Withdraw",

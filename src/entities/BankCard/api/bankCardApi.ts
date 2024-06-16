@@ -7,12 +7,11 @@ import { BanksData } from '../model/types/bank'
 export const useBankCard = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery({
+    const { data, isPending, isError } = useQuery({
         queryKey: ['bankCard', user?.id],
-        queryFn: () => $api.get<BanksData[]>(`/banks?user_id=${user?.id}`)
+        queryFn: () => $api.get<BanksData[]>(`/banks?user_id=${user?.id}`),
+        select: (data) => data.data[0],
     });
 
-    return {
-        query
-    }
+    return { data, isPending, isError }
 }

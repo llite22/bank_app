@@ -4,9 +4,7 @@ import { useStatisctics } from "../../../model/api/staticticsApi";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const ExpenseStatistics = () => {
-  const {
-    query: { data, isPending, isError },
-  } = useStatisctics();
+  const { data, isPending, isError } = useStatisctics();
 
   if (isPending) {
     return (
@@ -36,7 +34,7 @@ const ExpenseStatistics = () => {
         name: "Access From",
         type: "pie",
         radius: "95%",
-        data: data?.data[0].statistics,
+        data: data?.statistics,
         label: {
           show: true,
           position: "inside", // Разместить метки внутри

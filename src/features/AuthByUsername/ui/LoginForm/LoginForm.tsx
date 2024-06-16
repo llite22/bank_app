@@ -17,8 +17,7 @@ import { MoonLoader } from "react-spinners";
 
 const LoginForm = () => {
   const { t } = useTranslation();
-  const { mutation } = useAuth();
-  const { mutate, isPending, isError } = mutation
+  const { mutate, isPending, isError } = useAuth();
 
   const formSchema = z.object({
     username: z.string().min(2, {

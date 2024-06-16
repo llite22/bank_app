@@ -12,9 +12,7 @@ import { Theme } from "@/shared/types/theme";
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
   const { theme } = useTheme();
-  const {
-    query: { refetch },
-  } = useAuth();
+  const { refetch } = useAuth();
   const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
 
   useEffect(() => {

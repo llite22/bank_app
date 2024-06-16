@@ -7,12 +7,11 @@ import { BalanceData } from '../types/balance'
 export const useBalance = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery({
+    const { data, isPending, isError } = useQuery({
         queryKey: ['balances', user?.id],
-        queryFn: () => $api.get<BalanceData[]>(`/balances?user_id=${user?.id}`)
+        queryFn: () => $api.get<BalanceData[]>(`/balances?user_id=${user?.id}`),
+        select: (data) => data.data[0]
     });
 
-    return {
-        query
-    }
+    return { data, isPending, isError }
 }

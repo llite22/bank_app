@@ -15,7 +15,7 @@ interface LoginByUsernameProps {
 export const useAuth = () => {
     const navigate = useNavigate()
     const { setUser } = useContext(AuthContext)
-    const mutation = useMutation({
+    const { mutate, isPending, isError } = useMutation({
         mutationFn: ({ username, password }: LoginByUsernameProps) => {
             return $api.post<UserSchema>('/auth', { username, password })
         },
@@ -32,13 +32,10 @@ export const useAuth = () => {
             console.error(error)
         }
     })
-    const query = useQuery({
+    const { refetch } = useQuery({
         queryKey: ['auth'],
         queryFn: () => $api.get<User>('/auth_me'),
         enabled: false
     })
-    return {
-        mutation,
-        query
-    }
+    return { mutate, isPending, isError, refetch }
 }

@@ -7,12 +7,11 @@ import { TransactionsData } from '../types/transaction'
 export const useTransaction = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery({
+    const { data, isPending, isError } = useQuery({
         queryKey: ['transactions', user?.id],
-        queryFn: () => $api.get<TransactionsData[]>(`/transactions?user_id=${user?.id}`)
+        queryFn: () => $api.get<TransactionsData[]>(`/transactions?user_id=${user?.id}`),
+        select: (data) => data.data[0]
     });
 
-    return {
-        query
-    }
+    return { data, isPending, isError }
 }

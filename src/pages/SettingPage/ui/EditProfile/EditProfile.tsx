@@ -22,8 +22,7 @@ import { MoonLoader } from "react-spinners";
 
 export const EditProfile = () => {
   const { t } = useTranslation();
-  const { mutation } = useImage();
-  const { mutate, isPending, isError, data } = mutation;
+  const { mutate, isPending, isError, data } = useImage();
   const [isModal, setIsModal] = useState<boolean>(false);
 
   const formSchema = z.object({

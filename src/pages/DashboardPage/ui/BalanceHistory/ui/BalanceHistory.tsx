@@ -4,11 +4,7 @@ import { useBalance } from "../../../model/api/balanceApi";
 import { Skeleton } from "@/shared/ui/Skeleton/Skeleton";
 
 const BalanceHistory = () => {
-  const {
-    query: { data, isPending, isError },
-  } = useBalance();
-  console.log(data);
-  
+  const { data, isPending, isError } = useBalance();
 
   if (isPending) {
     return (
@@ -55,7 +51,7 @@ const BalanceHistory = () => {
     },
     series: [
       {
-        data: data && data.data[0].history.map((t) => t.balance),
+        data: data?.history.map((t) => t.balance),
         type: "line",
         smooth: true,
       },

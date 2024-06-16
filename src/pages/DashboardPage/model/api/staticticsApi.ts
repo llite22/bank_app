@@ -7,12 +7,11 @@ import { StatisticData } from '../types/statictics'
 export const useStatisctics = () => {
     const { user } = useContext(AuthContext)
 
-    const query = useQuery({
+    const { data, isPending, isError } = useQuery({
         queryKey: ['statistics', user?.id],
-        queryFn: () => $api.get<StatisticData[]>(`/statistics?user_id=${user?.id}`)
+        queryFn: () => $api.get<StatisticData[]>(`/statistics?user_id=${user?.id}`),
+        select: (data) => data.data[0]
     });
 
-    return {
-        query
-    }
+    return { data, isPending, isError }
 }

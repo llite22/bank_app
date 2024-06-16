@@ -27,9 +27,7 @@ export const Navbar = () => {
   const { pathname } = useLocation();
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const {
-    query: { data, isPending, isError },
-  } = useNotification();
+  const { data, isPending, isError } = useNotification();
 
   const onLogout = () => {
     setUser?.(null);
@@ -63,9 +61,7 @@ export const Navbar = () => {
                 <Icon Svg={NotificationIcon} />
                 <div
                   className={`absolute top-0 right-0 w-3 h-3 rounded-full ${
-                    data && data.data[0].count > 0
-                      ? "bg-red-500 animate-pulse"
-                      : ""
+                    data && data.count > 0 ? "bg-red-500 animate-pulse" : ""
                   }`}
                 ></div>
               </div>
@@ -84,22 +80,21 @@ export const Navbar = () => {
                   Error
                 </div>
               )}
-              {data &&
-                data.data[0].notification.map((item) => (
-                  <DropdownMenuItem key={item.id} className="cursor-pointer">
-                    <div className="flex flex-col w-full gap-1 p-2">
-                      <h1>{t(item.bank_name)}</h1>
-                      <b>
-                        {item.currency === "RUB" ? "₽" : "$"}
-                        {item.amount}
-                      </b>
-                      <div className="flex flex-col">
-                        <b>{t(item.transaction_type)}</b>
-                        <b>{t(item.message)}</b>
-                      </div>
+              {data?.notification.map((item) => (
+                <DropdownMenuItem key={item.id} className="cursor-pointer">
+                  <div className="flex flex-col w-full gap-1 p-2">
+                    <h1>{t(item.bank_name)}</h1>
+                    <b>
+                      {item.currency === "RUB" ? "₽" : "$"}
+                      {item.amount}
+                    </b>
+                    <div className="flex flex-col">
+                      <b>{t(item.transaction_type)}</b>
+                      <b>{t(item.message)}</b>
                     </div>
-                  </DropdownMenuItem>
-                ))}
+                  </div>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
           <DropdownMenu>

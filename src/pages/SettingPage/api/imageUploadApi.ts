@@ -8,7 +8,7 @@ interface UploadResponse {
 };
 
 export const useImage = () => {
-    const mutation = useMutation({
+    const { mutate, isPending, isError, data } = useMutation({
         mutationFn: (file: File) => {
             const formData = new FormData();
             formData.append('file', file);
@@ -19,5 +19,5 @@ export const useImage = () => {
         }
     })
 
-    return { mutation }
+    return { mutate, isPending, isError, data }
 }
