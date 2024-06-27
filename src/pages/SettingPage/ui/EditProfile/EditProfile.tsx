@@ -87,10 +87,22 @@ export const EditProfile = () => {
   return (
     <div className="flex justify-center items-center w-full p-16 gap-8 border-2 border-gray-200 rounded-3xl">
       <div className="flex self-start relative">
-        {isPending && <MoonLoader color={"#36d7b7"} loading={true} size={60} />}
-        {isError && <p>{t("Error")}</p>}
-        <Avatar className="w-[130px] h-[130px]">
-          <AvatarImage src={data ? data?.data.url : ""} alt="avatar" />
+        <Avatar className="w-[130px] h-[130px] rounded-full bg-gray-400">
+          {isPending && (
+            <div className="w-full h-full flex justify-center items-center">
+              <MoonLoader color={"#36d7b7"} loading={true} size={60} />
+            </div>
+          )}
+          {isError && (
+            <p className="w-full h-full flex justify-center items-center">
+              {t("Error")}
+            </p>
+          )}
+          <AvatarImage
+            src={data ? data?.data.url : ""}
+            alt="avatar"
+            className="w-full h-full object-cover rounded-full"
+          />
         </Avatar>
         <Icon
           onClick={onOpenModal}
