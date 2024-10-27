@@ -7,21 +7,14 @@ import { Sidebar } from "@/widgets/Sidebar/ui/Sidebar/Sidebar";
 import { Navbar } from "@/widgets/Navbar";
 import { MoonLoader } from "react-spinners";
 import { useTheme } from "@/shared/lib/hooks/useTheme/useTheme";
-import { Theme } from "@/shared/types/theme";
+import { useThemeSwitch } from "@/shared/hooks/useThemeSwitch";
 
 function App() {
   const { setUser, setIsLoading, isLoading, user } = useContext(AuthContext);
   const { theme } = useTheme();
+  useThemeSwitch(theme)
   const { refetch } = useAuth();
   const token = localStorage.getItem(USER_LOCALSTORAGE_KEY);
-
-  useEffect(() => {
-    if (theme === Theme.DARK) {
-      document.documentElement.classList.add(Theme.DARK);
-    } else {
-      document.documentElement.classList.remove(Theme.DARK);
-    }
-  }, [theme]);
 
   useEffect(() => {
     if (token) {
