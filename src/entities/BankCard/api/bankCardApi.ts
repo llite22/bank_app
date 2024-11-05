@@ -9,7 +9,7 @@ export const useBankCard = () => {
 
     const { data, isPending, isError } = useQuery({
         queryKey: ['bankCard', user?.id],
-        queryFn: () => $api.get<BanksData[]>(`/banks?user_id=${user?.id}`),
+        queryFn: async () => await $api.get<BanksData[]>(`/banks?user_id=${user?.id}`),
         select: (data) => data.data[0],
     });
 

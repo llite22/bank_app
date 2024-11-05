@@ -9,7 +9,7 @@ export const useStatisctics = () => {
 
     const { data, isPending, isError } = useQuery({
         queryKey: ['statistics', user?.id],
-        queryFn: () => $api.get<StatisticData[]>(`/statistics?user_id=${user?.id}`),
+        queryFn: async () => await $api.get<StatisticData[]>(`/statistics?user_id=${user?.id}`),
         select: (data) => data.data[0]
     });
 

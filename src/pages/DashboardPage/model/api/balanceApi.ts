@@ -9,7 +9,7 @@ export const useBalance = () => {
 
     const { data, isPending, isError } = useQuery({
         queryKey: ['balances', user?.id],
-        queryFn: () => $api.get<BalanceData[]>(`/balances?user_id=${user?.id}`),
+        queryFn: async () => await $api.get<BalanceData[]>(`/balances?user_id=${user?.id}`),
         select: (data) => data.data[0]
     });
 

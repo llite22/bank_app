@@ -9,7 +9,7 @@ export const useNotification = () => {
 
     const { data, isPending, isError } = useQuery({
         queryKey: ['notification', user?.id],
-        queryFn: () => $api.get<NotificationsData[]>(`/notifications?user_id=${user?.id}`),
+        queryFn: async () => await $api.get<NotificationsData[]>(`/notifications?user_id=${user?.id}`),
         select: (data) => data.data[0],
     });
 

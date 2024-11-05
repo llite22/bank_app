@@ -16,8 +16,8 @@ export const useAuth = () => {
     const navigate = useNavigate()
     const { setUser } = useContext(AuthContext)
     const { mutate, isPending, isError } = useMutation({
-        mutationFn: ({ username, password }: LoginByUsernameProps) => {
-            return $api.post<UserSchema>('/auth', { username, password })
+        mutationFn: async ({ username, password }: LoginByUsernameProps) => {
+            return await $api.post<UserSchema>('/auth', { username, password })
         },
         onSuccess: ({ data }) => {
             if (data) {

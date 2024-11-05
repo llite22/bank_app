@@ -9,10 +9,10 @@ interface UploadResponse {
 
 export const useImage = () => {
     const { mutate, isPending, isError, data } = useMutation({
-        mutationFn: (file: File) => {
+        mutationFn: async (file: File) => {
             const formData = new FormData();
             formData.append('file', file);
-            return $api.post<UploadResponse>('/uploads', formData);
+            return await $api.post<UploadResponse>('/uploads', formData);
         },
         onError: (error) => {
             console.error(error)

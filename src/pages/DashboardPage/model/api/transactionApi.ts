@@ -9,7 +9,7 @@ export const useTransaction = () => {
 
     const { data, isPending, isError } = useQuery({
         queryKey: ['transactions', user?.id],
-        queryFn: () => $api.get<TransactionsData[]>(`/transactions?user_id=${user?.id}`),
+        queryFn: async () => await $api.get<TransactionsData[]>(`/transactions?user_id=${user?.id}`),
         select: (data) => data.data[0]
     });
 
