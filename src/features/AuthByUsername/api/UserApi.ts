@@ -34,7 +34,7 @@ export const useAuth = () => {
     })
     const { refetch } = useQuery({
         queryKey: ['auth'],
-        queryFn: () => $api.get<User>('/auth_me'),
+        queryFn: async () => await $api.get('/auth_me'),
         enabled: false
     })
     return { mutate, isPending, isError, refetch }
